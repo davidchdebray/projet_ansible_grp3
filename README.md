@@ -109,6 +109,14 @@ On vérifie que les changements ont bien étés fait:
 ## 3. Déploiement serveur Docker
 
 
+### 1. Créer un playbook deploy-docker.yml qui appelera le role ansible-role-docker__0.0.1
 
+### 2. Pour tester ce playbook, le faire d'abord sur une VM locale de dev puis une fois sur la machine distante projet Debian
+
+### 3. Valider l'installation docker, vérifier la présence de docker-compose
+
+### 4. Commit le code et pusher sur le dépôt git distant
+
+### 5. Réaliser l'opération sur la VM projet Debian
 
 
