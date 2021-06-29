@@ -108,6 +108,12 @@ On vérifie que les changements ont bien étés fait:
 
 ## 3. Déploiement serveur Docker
 
+### Ajout du rôle Docker
+
+````bash
+mkdir roles && cd roles
+git clone https://github.com/psable/ansible-role-docker
+```
 
 ### 1. Créer un playbook deploy-docker.yml qui appelera le role ansible-role-docker__0.0.1
 
