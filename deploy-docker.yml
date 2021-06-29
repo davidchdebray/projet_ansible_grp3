@@ -3,5 +3,5 @@
   hosts: "{{ cible | default('nodes') }}"
 
   roles:
-    - role: ansible-role-docker
+    - role: ansible-role-docker__3.1.2
       become: yes
