@@ -4,20 +4,14 @@ manager ansible_connection=local
 [nodes:children]
 debian
 
-
-
 [ubuntu]
 manager
 
 [debian]
 hedgedoc ansible_host=poecdevops.grp3.dawan.training
-
-
  
-
 [chafea]
 chafeatest ansible_host=192.168.1.20
-
 
 [david]
 davidtest ansible_host=192.168.3.3
