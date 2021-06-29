@@ -1,0 +1,12 @@
+[local]
+manager ansible_connection=local
+
+[nodes:children]
+debian
+
+[ubuntu]
+manager
+
+[debian]
+debian_grp3 ansible_host=poecdevops.grp3.dawan.training
+debiantest ansible_host=192.168.3.3
