@@ -9,4 +9,12 @@ manager
 
 [debian]
 debian_grp3 ansible_host=poecdevops.grp3.dawan.training
+
+[chafea]
+debiantest ansible_host=192.168.1.20
+
+[David]
 debiantest ansible_host=192.168.3.3
+
+[Vincent]
+debiantest ansible_host=192.168.1.56
