@@ -1,0 +1,7 @@
+---
+- name: PLAY Apelle le rôle ansible-role-docker
+  hosts: "{{ cible | default('nodes') }}"
+
+  roles:
+    - role: ansible-role-docker
+      become: yes
