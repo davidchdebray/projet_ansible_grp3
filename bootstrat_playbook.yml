@@ -1,0 +1,33 @@
+
+---
+
+- name: PLAY creation utilisateur ansible
+  # Variabilisation de la valeur hosts (pattern) pour pouvoir la définir au lancement du play
+  hosts: "{{ cible | default('all') }}"
+
+  tasks:
+
+    # Déclaration d'une task qui appelle le module user afin de disposer d'un user ansible
+    - name: Utilisation du module user pour creer ansible
+      ansible.builtin.user:
+        name: ansible
+        shell: /bin/bash
+        # Utilisation d'une variable pour permettre une distinction du groupe désiré
+        groups: "{{ grp_sudo | default('sudo') }}"
+    # Déclaration d'une seconde task qui appelle le module authorized_key pour pousser une clé publique pour le user ansible
+    - name: Module authorized_key pour deployer la clé publique chez ansible
+      ansible.posix.authorized_key:
+        user: ansible
+        state: present
+        key: "{{ lookup('file', '/home/stagiaire/.ssh/id_ed25519.pub') }}"
+    # Déclaration d'une troisieme task pour générer un fichier de config sudo dédié au user ansible
+    - name: Module copy pour s'assurer q'une fichier sudo pour ansible soit présent avec un contenu précis
+      ansible.builtin.copy:
+        dest: '/etc/sudoers.d/ansible'
+        content: 'ansible ALL=(ALL:ALL) NOPASSWD: ALL'
+        backup: yes
+        owner: root 
+        group: root
+        mode: 0440
+        validate: /usr/sbin/visudo -csf %s
+...
